@@ -1,3 +1,11 @@
+** 배열 **
+배열이란 연속적인 메모리공간.
+추상자료형
+객체 : <인덱스 ,값> 쌍의 집합
+연산 : get, set ,create
+
+다항식(1차원), 행렬(2차원) 등에 응용가능.
+
 ** 구조체 **
 구조체란 서로 다른 자료형의 데이터를 하나의 그룹으로 묶은 자료형을 의미함.
 
@@ -8,7 +16,7 @@ typedef struct student_type
 	float score;
 }Student;
 
-Student temp = {"sim", 2020, 100};
+Student temp = {"sim", 2020, 100}; //선언 시에 초기화
 
 
 
