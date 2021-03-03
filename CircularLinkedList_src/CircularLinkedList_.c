@@ -86,7 +86,7 @@ int add(CircularLinkedList* list, element data, int pos)
 {
 	if (list != NULL)
 	{
-		if (pos == 0) //맨 처음에 항목을 삽입할 경우
+		if (pos == 0 || list->size == 0) //맨 처음에 항목을 삽입할 경우
 		{
 			add_First(list, data);
 			return 1;
