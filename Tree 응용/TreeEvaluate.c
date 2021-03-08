@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
 typedef struct TreeNode
 {
 	int data;
@@ -34,7 +33,7 @@ int Evaluate(TreeNode* root)
 		int op1 = Evaluate(root->left);
 		int op2 = Evaluate(root->right);
 
-		printf("%d %c %d °è»ê\n", op1, root->data, op2);
+		printf("%d %c %d Â°Ã¨Â»Ãª\n", op1, root->data, op2);
 
 		switch (root->data)
 		{
@@ -56,7 +55,6 @@ int Evaluate(TreeNode* root)
 
 int main()
 {
-	printf("¼ö½ÄÀÇ °ªÀº : %d\n", Evaluate(exp));
+	printf("ìˆ˜ì‹ì˜ ê°’ì€ : %d\n", Evaluate(exp));
 	return 0;
 }
-*/
