@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
 typedef int element;
 typedef struct Node
 {
@@ -35,7 +34,7 @@ int isEmpty(Stack_* stack)
 
 void Push(Stack_* stack, element data)
 {
-	Node* newNode = (Node*)malloc(sizeof(Node)); //null Ã¼Å© Ãß°¡ÇØÁÖ¸é ÁÁ´Ù.
+	Node* newNode = (Node*)malloc(sizeof(Node)); //null ì²´í¬ ì¶”ê°€í•´ì£¼ë©´ ì¢‹ë‹¤.
 	newNode->data = data;
 	newNode->link = stack->top;
 	stack->top = newNode;
@@ -47,7 +46,7 @@ int Pop(Stack_* stack)
 {
 	if (isEmpty(stack) == 1)
 	{
-		fprintf(stderr, "½ºÅÃÀÌ ºñ¾îÀÖ½À´Ï´Ù.\n");
+		fprintf(stderr, "ìŠ¤íƒì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.\n");
 		exit(1);
 	}
 	else
@@ -69,7 +68,7 @@ int Peek(Stack_* stack)
 {
 	if (isEmpty(stack) == 1)
 	{
-		fprintf(stderr, "½ºÅÃÀÌ ºñ¾îÀÖ½À´Ï´Ù.\n");
+		fprintf(stderr, "ìŠ¤íƒì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.\n");
 		exit(1);
 	}
 	else
@@ -123,4 +122,3 @@ int main()
 
 	return 0;
 }
-*/
