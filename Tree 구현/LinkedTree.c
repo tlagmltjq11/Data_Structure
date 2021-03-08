@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
 typedef struct TreeNode
 {
 	int data;
@@ -29,7 +28,7 @@ int main()
 	free(n2);
 	free(n3);
 
-	//�迭 ǥ����
+	//¹è¿­ Ç¥Çö½Ä
 	int tree[10];
 	tree[1] = 10;
 	tree[2] = 20;
@@ -37,4 +36,3 @@ int main()
 
 	return 0;
 }
-*/
