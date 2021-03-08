@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #define MAX_QUEUE_SIZE 5
 
-/*
 typedef int element;
 typedef struct
 {
@@ -72,7 +71,7 @@ void Enqueue(Queue* q, int data)
 	}
 	else
 	{
-		Error("Queue°¡ Æ÷È­ »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ í¬í™” ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -86,7 +85,7 @@ int Dequeue(Queue* q)
 	}
 	else
 	{
-		Error("Queue°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ ê³µë°± ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -116,4 +115,4 @@ void main()
 	Queue_Print(&q);
 
 	return 0;
-}*/
+}
