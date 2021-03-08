@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
+
 typedef int element;
 typedef struct TreeNode
 {
@@ -9,7 +9,7 @@ typedef struct TreeNode
 	struct TreeNode* left, * right;
 }TreeNode;
 
-//¹İº¹ÀûÀÎ Å½»ö
+//ë°˜ë³µì ì¸ íƒìƒ‰
 TreeNode* Search_Loop(TreeNode* root, element key)
 {
 	while (root != NULL)
@@ -31,7 +31,7 @@ TreeNode* Search_Loop(TreeNode* root, element key)
 	return NULL;
 }
 
-//¼øÈ¯(Àç±Í)ÀûÀÎ Å½»ö
+//ìˆœí™˜(ì¬ê·€)ì ì¸ íƒìƒ‰
 TreeNode* Search_Recur(TreeNode* root, element key)
 {
 	if (root == NULL)
@@ -62,7 +62,7 @@ TreeNode* NewNode(element key)
 	return temp;
 }
 
-//¹İº¹ÀûÀÎ »ğÀÔ
+//ë°˜ë³µì ì¸ ì‚½ì…
 TreeNode* Insert_Loop(TreeNode* root, element key)
 {
 	TreeNode* newNode;
@@ -102,12 +102,12 @@ TreeNode* Insert_Loop(TreeNode* root, element key)
 	return newNode;
 }
 
-//¼øÈ¯ÀûÀÎ »ğÀÔ
+//ìˆœí™˜ì ì¸ ì‚½ì…
 TreeNode* Insert_Recur(TreeNode * root, element key)
 {
 	if (root == NULL)
 	{
-		return NewNode(key); //»ğÀÔ ÇÒ À§Ä¡¸¦ Ã£¾ÒÀ¸´Ï ÇØ´ç ³ëµå¸¦ »ı¼º ÈÄ ¹İÈ¯
+		return NewNode(key); //ì‚½ì… í•  ìœ„ì¹˜ë¥¼ ì°¾ì•˜ìœ¼ë‹ˆ í•´ë‹¹ ë…¸ë“œë¥¼ ìƒì„± í›„ ë°˜í™˜
 	}
 
 	if (key < root->key)
@@ -122,14 +122,14 @@ TreeNode* Insert_Recur(TreeNode * root, element key)
 	return root;
 }
 
-//2°³ÀÇ ¼­ºê³ëµå¸¦ °¡Áø ³ëµå¸¦ »èÁ¦ ½Ã, ¿ìÃø ÇÏ´Ü¿¡¼­ ´ëÃ¼ ³ëµå¸¦ Ã£±â·Î ±âÁØÀ» ¼³Á¤ÇÔ.
+//2ê°œì˜ ì„œë¸Œë…¸ë“œë¥¼ ê°€ì§„ ë…¸ë“œë¥¼ ì‚­ì œ ì‹œ, ìš°ì¸¡ í•˜ë‹¨ì—ì„œ ëŒ€ì²´ ë…¸ë“œë¥¼ ì°¾ê¸°ë¡œ ê¸°ì¤€ì„ ì„¤ì •í•¨.
 TreeNode* Find_Min(TreeNode* root)
 {
 	TreeNode* cur = root;
 
 	while (cur->left != NULL) 
 	{
-		cur = cur->left; //¸Ç¿ŞÂÊ Á¦ÀÏ ÇÏ´Ü ºÎºĞÀÌ ÃÖ¼Ò°ªÀÌ µÊ.
+		cur = cur->left; //ë§¨ì™¼ìª½ ì œì¼ í•˜ë‹¨ ë¶€ë¶„ì´ ìµœì†Œê°’ì´ ë¨.
 	}
 
 	return cur;
@@ -175,7 +175,7 @@ TreeNode* Delete_Recur(TreeNode* root, element key)
 	return root;
 }
 
-//ÁßÀ§¼øÈ¸ Ãâ·Â 
+//ì¤‘ìœ„ìˆœíšŒ ì¶œë ¥ 
 void InOrder(TreeNode* root)
 {
 	if (root != NULL)
@@ -191,7 +191,7 @@ int main()
 	TreeNode* root = NULL;
 	TreeNode* temp = NULL;
 
-	printf("Recur : Àç±Í¸¦ ÀÌ¿ëÇØ Æ®¸®¿¡ ³ëµå »ğÀÔ\n");
+	printf("Recur : ì¬ê·€ë¥¼ ì´ìš©í•´ íŠ¸ë¦¬ì— ë…¸ë“œ ì‚½ì…\n");
 	root = Insert_Recur(root, 30);
 	root = Insert_Recur(root, 20);
 	root = Insert_Recur(root, 10);
@@ -199,77 +199,76 @@ int main()
 	root = Insert_Recur(root, 50);
 	root = Insert_Recur(root, 60);
 
-	printf("ÀÌÁø Å½»ö Æ®¸® ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("ì´ì§„ íƒìƒ‰ íŠ¸ë¦¬ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	InOrder(root);
 	printf("\n\n");
 
-	printf("30 »èÁ¦ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("30 ì‚­ì œ í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Delete_Recur(root, 30);
 	InOrder(root);
 	printf("\n\n");
 
-	printf("60 »èÁ¦ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("60 ì‚­ì œ í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Delete_Recur(root, 60);
 	InOrder(root);
 	printf("\n\n");
 
-	printf("10 »èÁ¦ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("10 ì‚­ì œ í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Delete_Recur(root, 10);
 	InOrder(root);
 	printf("\n\n");
 
-	printf("Loop : 10 »ğÀÔ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("Loop : 10 ì‚½ì… í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Insert_Loop(root, 10);
 	InOrder(root);
 	printf("\n\n");
 
-	printf("Loop : 60 »ğÀÔ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("Loop : 60 ì‚½ì… í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Insert_Loop(root, 60);
 	InOrder(root);
 	printf("\n\n");
 	
 	if (Search_Recur(root, 30) != NULL)
 	{
-		printf("Recur : 30 Ã£À½.\n");
+		printf("Recur : 30 ì°¾ìŒ.\n");
 	}
 	else
 	{
-		printf("Recur : 30 ¸øÃ£À½.\n");
+		printf("Recur : 30 ëª»ì°¾ìŒ.\n");
 	}
 
 	if (Search_Loop(root, 30) != NULL)
 	{
-		printf("Loop : 30 Ã£À½.\n");
+		printf("Loop : 30 ì°¾ìŒ.\n");
 	}
 	else
 	{
-		printf("Loop : 30 ¸øÃ£À½.\n");
+		printf("Loop : 30 ëª»ì°¾ìŒ.\n");
 	}
 	printf("\n\n");
 
-	printf("Loop : 30 »ğÀÔ ÈÄ ÁßÀ§ ¼øÈ¸ °á°ú\n");
+	printf("Loop : 30 ì‚½ì… í›„ ì¤‘ìœ„ ìˆœíšŒ ê²°ê³¼\n");
 	Insert_Loop(root, 30);
 	InOrder(root);
 	printf("\n\n");
 
 	if (Search_Recur(root, 30) != NULL)
 	{
-		printf("Recur : 30 Ã£À½.\n");
+		printf("Recur : 30 ì°¾ìŒ.\n");
 	}
 	else
 	{
-		printf("Recur : 30 ¸øÃ£À½.\n");
+		printf("Recur : 30 ëª»ì°¾ìŒ.\n");
 	}
 
 	if (Search_Loop(root, 30) != NULL)
 	{
-		printf("Loop : 30 Ã£À½.\n");
+		printf("Loop : 30 ì°¾ìŒ.\n");
 	}
 	else
 	{
-		printf("Loop : 30 ¸øÃ£À½.\n");
+		printf("Loop : 30 ëª»ì°¾ìŒ.\n");
 	}
 	printf("\n\n");
 	return 0;
 }
-*/
