@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #define MAX_SIZE 100
 
-/*
 typedef int element;
 typedef struct
 {
@@ -10,43 +9,43 @@ typedef struct
 	int size;
 }ArrayList;
 
-//¿¡·¯Ãâ·Â
+//ì—ëŸ¬ì¶œë ¥
 void error(char * m)
 {
 	fprintf(stderr, "%s\n", m);
 	exit(1);
 }
 
-//ÃÊ±âÈ­
+//ì´ˆê¸°í™”
 void init(ArrayList* list)
 {
 	list->size = 0;
 }
 
-//¾î·¹ÀÌ¸®½ºÆ®°¡ ºñ¾îÀÖ´ÂÁö Ã¼Å©
+//ì–´ë ˆì´ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆëŠ”ì§€ ì²´í¬
 int isEmpty(ArrayList* list)
 {
 	return list->size == 0;
 }
 
-//Æ÷È­ »óÅÂÀÎÁö Ã¼Å©
+//í¬í™” ìƒíƒœì¸ì§€ ì²´í¬
 int isFull(ArrayList* list)
 {
 	return list->size == MAX_SIZE;
 }
 
-//pos À§Ä¡ÀÇ µ¥ÀÌÅÍ¸¦ ¹İÈ¯ÇÑ´Ù.
+//pos ìœ„ì¹˜ì˜ ë°ì´í„°ë¥¼ ë°˜í™˜í•œë‹¤.
 element get(ArrayList* list, int pos)
 {
 	if (pos < 0 || pos >= list->size)
 	{
-		error("À§Ä¡ ¿À·ù");
+		error("ìœ„ì¹˜ ì˜¤ë¥˜");
 	}
 
 	return list->arr[pos];
 }
 
-//¾î·¹ÀÌ¸®½ºÆ® Ãâ·Â
+//ì–´ë ˆì´ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
 void print(ArrayList* list)
 {
 	for (int i = 0; i < list->size; i++)
@@ -56,18 +55,18 @@ void print(ArrayList* list)
 	printf("\n");
 }
 
-//¸ÇµÚ¿¡ Ç×¸ñ Ãß°¡
+//ë§¨ë’¤ì— í•­ëª© ì¶”ê°€
 void insert_Last(ArrayList* list, element data)
 {
 	if (list->size >= MAX_SIZE)
 	{
-		error("¸®½ºÆ® ¿À¹öÇÃ·Î¿ì");
+		error("ë¦¬ìŠ¤íŠ¸ ì˜¤ë²„í”Œë¡œìš°");
 	}
 
 	list->arr[list->size++] = data;
 }
 
-//Áß°£¿¡ Ç×¸ñÀ» Ãß°¡ÇÏ±â À§ÇØ¼­ ¿À¸¥ÂÊÀ¸·Î ±âÁ¸ Ç×¸ñµéÀ» ¹Ì·ïÁØ´Ù.
+//ì¤‘ê°„ì— í•­ëª©ì„ ì¶”ê°€í•˜ê¸° ìœ„í•´ì„œ ì˜¤ë¥¸ìª½ìœ¼ë¡œ ê¸°ì¡´ í•­ëª©ë“¤ì„ ë¯¸ë¤„ì¤€ë‹¤.
 void insert(ArrayList* list, element data, int pos)
 {
 	if (!isFull(list) && (pos >= 0) && (pos <= list->size))
@@ -82,14 +81,14 @@ void insert(ArrayList* list, element data, int pos)
 	}
 }
 
-//Áß°£ Ç×¸ñÀ» »èÁ¦ÇÏ±â À§ÇØ¼­ ¿ŞÂÊÀ¸·Î ±âÁ¸ Ç×¸ñµéÀ» ´ç°ÜÁØ´Ù.
+//ì¤‘ê°„ í•­ëª©ì„ ì‚­ì œí•˜ê¸° ìœ„í•´ì„œ ì™¼ìª½ìœ¼ë¡œ ê¸°ì¡´ í•­ëª©ë“¤ì„ ë‹¹ê²¨ì¤€ë‹¤.
 element delete(ArrayList* list, int pos)
 {
 	element data;
 
 	if (pos < 0 || pos >= list->size)
 	{
-		error("À§Ä¡ ¿À·ù");
+		error("ìœ„ì¹˜ ì˜¤ë¥˜");
 	}
 
 	data = list->arr[pos];
@@ -122,4 +121,3 @@ int main()
 
 	return 0;
 }
-*/
