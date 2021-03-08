@@ -3,7 +3,6 @@
 #define MAX_QUEUE_SIZE 5
 #define _CRT_SECURE_NO_WARNINGS
 
-/*
 typedef struct
 {
 	int id;
@@ -26,7 +25,7 @@ void Error(char* m)
 
 void Init_Queue(Queue* q)
 {
-	//¿øÇüÅ¥´Â ¼øÈ¯ÇÏ¹Ç·Î -1°ªÀÌ ¾Æ´Ï¶ó 0À¸·Î ÃÊ±âÈ­ÇÑ´Ù.
+	//ì›í˜•íëŠ” ìˆœí™˜í•˜ë¯€ë¡œ -1ê°’ì´ ì•„ë‹ˆë¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•œë‹¤.
 	q->rear = 0;
 	q->front = 0;
 }
@@ -53,7 +52,7 @@ void Queue_Print(Queue* q)
 
 int Is_Full(Queue* q)
 {
-	//front°¡ rearº¸´Ù ÇÑÄ­ ¾Õ¿¡ Á¸ÀçÇÑ´Ù¸é Æ÷È­»óÅÂ
+	//frontê°€ rearë³´ë‹¤ í•œì¹¸ ì•ì— ì¡´ì¬í•œë‹¤ë©´ í¬í™”ìƒíƒœ
 	if ((q->rear + 1) % MAX_QUEUE_SIZE == q->front)
 	{
 		return 1;
@@ -80,12 +79,12 @@ void Enqueue(Queue* q, element data)
 {
 	if (Is_Full(q) != 1)
 	{
-		q->rear = (q->rear + 1) % MAX_QUEUE_SIZE; //³ª´©±â ¿¬»êÀ» ÅëÇØ ÃÖ´ë ÀÎµ¦½º¸¦ ³Ñ¾î°¡¸é 0À¸·Î ¼øÈ¯½ÃÅ²´Ù.
+		q->rear = (q->rear + 1) % MAX_QUEUE_SIZE; //ë‚˜ëˆ„ê¸° ì—°ì‚°ì„ í†µí•´ ìµœëŒ€ ì¸ë±ìŠ¤ë¥¼ ë„˜ì–´ê°€ë©´ 0ìœ¼ë¡œ ìˆœí™˜ì‹œí‚¨ë‹¤.
 		q->data[q->rear] = data;
 	}
 	else
 	{
-		Error("Queue°¡ Æ÷È­ »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ í¬í™” ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -94,12 +93,12 @@ element Dequeue(Queue* q)
 {
 	if (Is_Empty(q) != 1)
 	{
-		q->front = (q->front + 1) % MAX_QUEUE_SIZE; //³ª´©±â ¿¬»êÀ» ÅëÇØ ÃÖ´ë ÀÎµ¦½º¸¦ ³Ñ¾î°¡¸é 0À¸·Î ¼øÈ¯½ÃÅ²´Ù.
+		q->front = (q->front + 1) % MAX_QUEUE_SIZE; //ë‚˜ëˆ„ê¸° ì—°ì‚°ì„ í†µí•´ ìµœëŒ€ ì¸ë±ìŠ¤ë¥¼ ë„˜ì–´ê°€ë©´ 0ìœ¼ë¡œ ìˆœí™˜ì‹œí‚¨ë‹¤.
 		return q->data[q->front];
 	}
 	else
 	{
-		Error("Queue°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ ê³µë°± ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -112,7 +111,7 @@ element Peek(Queue* q)
 	}
 	else
 	{
-		Error("Queue°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ ê³µë°± ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -131,7 +130,7 @@ void main()
 
 	for (int clock = 0; clock < minutes; clock++)
 	{
-		printf("ÇöÀç½Ã°¢ = %d\n", clock);
+		printf("í˜„ì¬ì‹œê° = %d\n", clock);
 		if ((rand() % 10) < 3)
 		{
 			element customer;
@@ -139,12 +138,12 @@ void main()
 			customer.arrival_time = clock;
 			customer.service_time = rand() % 3 + 1;
 			Enqueue(&q, customer);
-			printf("°í°´ %dÀÌ %dºĞ¿¡ µé¾î¿É´Ï´Ù. ¾÷¹«Ã³¸®½Ã°£ = %dºĞ\n", customer.id, customer.arrival_time, customer.service_time);
+			printf("ê³ ê° %dì´ %dë¶„ì— ë“¤ì–´ì˜µë‹ˆë‹¤. ì—…ë¬´ì²˜ë¦¬ì‹œê°„ = %dë¶„\n", customer.id, customer.arrival_time, customer.service_time);
 		}
 
 		if (service_time > 0)
 		{
-			printf("°í°´ %d ¾÷¹«Ã³¸®ÁßÀÔ´Ï´Ù.\n", service_customer);
+			printf("ê³ ê° %d ì—…ë¬´ì²˜ë¦¬ì¤‘ì…ë‹ˆë‹¤.\n", service_customer);
 			service_time--;
 		}
 		else
@@ -154,12 +153,11 @@ void main()
 				element customer = Dequeue(&q);
 				service_customer = customer.id;
 				service_time = customer.service_time;
-				printf("°í°´ %dÀÌ %dºĞ¿¡ ¾÷¹«¸¦ ½ÃÀÛÇÕ´Ï´Ù. ´ë±â½Ã°£Àº %dºĞÀÌ¾ú½À´Ï´Ù.\n", customer.id, clock, clock - customer.arrival_time);
+				printf("ê³ ê° %dì´ %dë¶„ì— ì—…ë¬´ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤. ëŒ€ê¸°ì‹œê°„ì€ %dë¶„ì´ì—ˆìŠµë‹ˆë‹¤.\n", customer.id, clock, clock - customer.arrival_time);
 				total_wait += clock - customer.arrival_time;
 			}
 		}
 	}
-	printf("ÀüÃ¼ ´ë±â ½Ã°£ = %dºĞ \n", total_wait);
+	printf("ì „ì²´ ëŒ€ê¸° ì‹œê°„ = %dë¶„ \n", total_wait);
 
 }
-*/
