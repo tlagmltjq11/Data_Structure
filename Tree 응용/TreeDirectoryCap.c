@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-/*
+
 typedef struct TreeNode
 {
 	int data;
@@ -30,7 +30,6 @@ int calc_dir_size(TreeNode* root)
 
 int main()
 {
-	printf("���丮�� ũ�� = %d\n", calc_dir_size(&n1));
+	printf("µð·ºÅä¸®ÀÇ Å©±â = %d\n", calc_dir_size(&n1));
 }
-*/
 
