@@ -30,6 +30,6 @@ int calc_dir_size(TreeNode* root)
 
 int main()
 {
-	printf("µð·ºÅä¸®ÀÇ Å©±â = %d\n", calc_dir_size(&n1));
+	printf("디렉토리의 크기 = %d\n", calc_dir_size(&n1));
 }
 
