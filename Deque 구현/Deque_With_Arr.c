@@ -3,7 +3,6 @@
 #define MAX_QUEUE_SIZE 5
 #define _CRT_SECURE_NO_WARNINGS
 
-/*
 typedef int element;
 typedef struct
 {
@@ -20,7 +19,7 @@ void Error(char* m)
 
 void Init_Deque(Deque* q)
 {
-	//¿øÇüÅ¥´Â ¼øÈ¯ÇÏ¹Ç·Î -1°ªÀÌ ¾Æ´Ï¶ó 0À¸·Î ÃÊ±âÈ­ÇÑ´Ù.
+	//ì›í˜•íëŠ” ìˆœí™˜í•˜ë¯€ë¡œ -1ê°’ì´ ì•„ë‹ˆë¼ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•œë‹¤.
 	q->rear = 0;
 	q->front = 0;
 }
@@ -47,7 +46,7 @@ void Deque_Print(Deque* q)
 
 int Is_Full(Deque* q)
 {
-	//front°¡ rearº¸´Ù ÇÑÄ­ ¾Õ¿¡ Á¸ÀçÇÑ´Ù¸é Æ÷È­»óÅÂ
+	//frontê°€ rearë³´ë‹¤ í•œì¹¸ ì•ì— ì¡´ì¬í•œë‹¤ë©´ í¬í™”ìƒíƒœ
 	if ((q->rear + 1) % MAX_QUEUE_SIZE == q->front)
 	{
 		return 1;
@@ -79,7 +78,7 @@ void Add_Front(Deque* q, int data)
 	}
 	else
 	{
-		Error("Queue°¡ Æ÷È­ »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ í¬í™” ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -88,12 +87,12 @@ int Delete_Front(Deque* q)
 {
 	if (Is_Empty(q) != 1)
 	{
-		q->front = (q->front + 1) % MAX_QUEUE_SIZE; //³ª´©±â ¿¬»êÀ» ÅëÇØ ÃÖ´ë ÀÎµ¦½º¸¦ ³Ñ¾î°¡¸é 0À¸·Î ¼øÈ¯½ÃÅ²´Ù.
+		q->front = (q->front + 1) % MAX_QUEUE_SIZE; //ë‚˜ëˆ„ê¸° ì—°ì‚°ì„ í†µí•´ ìµœëŒ€ ì¸ë±ìŠ¤ë¥¼ ë„˜ì–´ê°€ë©´ 0ìœ¼ë¡œ ìˆœí™˜ì‹œí‚¨ë‹¤.
 		return q->data[q->front];
 	}
 	else
 	{
-		Error("Queue°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ ê³µë°± ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -107,23 +106,23 @@ void Add_Rear(Deque* q, int data)
 	}
 	else
 	{
-		Error("Queue°¡ Æ÷È­ »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ í¬í™” ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
 
 int Delete_Rear(Deque* q)
 {
-	int prev = q->rear; //ÀÌÀü¿¡ °¡¸£Å°´ø °ªÀ» ÀúÀå
+	int prev = q->rear; //ì´ì „ì— ê°€ë¥´í‚¤ë˜ ê°’ì„ ì €ì¥
 
 	if (Is_Empty(q) != 1)
 	{
-		q->rear = (q->rear - 1 + MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE; //³ª´©±â ¿¬»êÀ» ÅëÇØ ÃÖ´ë ÀÎµ¦½º¸¦ ³Ñ¾î°¡¸é 0À¸·Î ¼øÈ¯½ÃÅ²´Ù.
+		q->rear = (q->rear - 1 + MAX_QUEUE_SIZE) % MAX_QUEUE_SIZE; //ë‚˜ëˆ„ê¸° ì—°ì‚°ì„ í†µí•´ ìµœëŒ€ ì¸ë±ìŠ¤ë¥¼ ë„˜ì–´ê°€ë©´ 0ìœ¼ë¡œ ìˆœí™˜ì‹œí‚¨ë‹¤.
 		return q->data[prev];
 	}
 	else
 	{
-		Error("Queue°¡ °ø¹é »óÅÂÀÔ´Ï´Ù.");
+		Error("Queueê°€ ê³µë°± ìƒíƒœì…ë‹ˆë‹¤.");
 		return;
 	}
 }
@@ -147,4 +146,4 @@ int main()
 	}
 
 	return 0;
-}*/
+}
