@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
 typedef int element;
 typedef struct TreeNode
 {
@@ -272,4 +271,3 @@ int main()
 	printf("\n\n");
 	return 0;
 }
-*/
